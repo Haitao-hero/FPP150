@@ -1,0 +1,406 @@
+\documentclass[12pt]{ctexart}
+\usepackage{graphicx}%图片
+\usepackage[margin=2cm,a4paper]{geometry}%页面布局
+\usepackage{blindtext}%隐藏文字
+\usepackage{xcolor}
+\usepackage{color}%文字颜色
+\usepackage{float} %设置图片位置
+\usepackage{fancyhdr}%设置页眉页脚
+\usepackage{amsmath}%希腊字母
+\usepackage{amssymb}
+\usepackage{enumitem}%给item编号
+\usepackage{booktabs}
+\usepackage{appendix}%附录
+
+\bibliographystyle{alpha}
+\pagestyle{fancy}
+\setlength{\headheight}{15pt}
+\title{\color{red}FPP150\ 使用手册}
+\author{\large 丘山仪器\\张海涛}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\fancyhead[L]{\color{red}丘山仪器}
+\fancyhead[R]{\color{red}FPP150}
+\fancyfoot[L]{www.qiushan-tech.com}
+\fancyfoot[R]{ver. 1.0}
+~\\
+~\\
+~\\
+~\\
+~\\
+~\\
+~\\
+~\\
+~\\
+~\\
+\renewcommand{\headrulewidth}{1.5pt}%分隔线宽度x磅
+\renewcommand{\footrulewidth}{1.5pt}
+
+
+\begin{center}
+\includegraphics{figures/logo.png}
+
+\end{center}
+\begin{center}
+
+
+{\color{blue} 地址：天津市西青区赛达九纬路7号电子城大数据产业园10栋\\
+主页：www.qiushan-tech.com\qquad 电话：18980928296\\
+Email: zhanghaitao999@foxmail.com\\}
+\end{center}
+\newpage
+\tableofcontents
+\newpage
+
+\section{简介}
+FPP150是专为科学研究设计的四探针电阻测量仪，可以对最大6英寸晶圆的方阻、电阻率、电导率参数进行测量。探针头借鉴了机械钟表机芯的制造工艺，使用红宝石轴承引导碳化钨探针，确保高机械精度和长使用寿命。0.1 $\mu\Omega\sim 100\ M\Omega$的超宽测量范围可涵盖绝大部分应用场景，可广泛适用于光伏、半导体、合金、导电膜等诸多领域。\cite[]{S1359645418305408.bib}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.80\textwidth]{figures/FPP150.png}
+\end{figure}
+
+\subsection{仪器特性}
+\begin{itemize}
+	\item \textbf{精密探针头}：镶嵌红宝石轴套的探针头，保证测量的机械精度、稳定性和寿命
+	\item \textbf{超宽测量范围}：0.1 $\mu\Omega\sim 100\ M\Omega$(FPP150A)\qquad 1 $\mu\Omega\sim 2\ M\Omega$(FPP150B)
+	\item \textbf{最大样品尺寸}：$150\space mm*70\space mm$ （直径*厚度）
+	\item \textbf{测量精度}：<±1\%
+	\item \textbf{重复性(1$\sigma$)}：±0.2\%(动态测试)\qquad 0.02\%（静态测试）
+	\item \textbf{数据可视化}：PC端数据采集软件，可对多点测量结果进行统计分析，得到平均值、标准差
+	
+    \end{itemize}
+\subsection{应用领域}
+    \begin{itemize}
+    \item \textbf{半导体及太阳能电池}（单晶硅、多晶硅、非晶硅、钙钛矿）
+    \item \textbf{液晶面板}（ITO/AZO）
+    \item \textbf{功能材料}（热电材料、碳纳米管、石墨烯、银纳米线、导电纤维布）
+    \item \textbf{半导体工艺}（金属层/离子注入/扩散层）
+    \item \textbf{非晶合金等}
+    \end{itemize}
+
+\subsection{探针头参数}
+\begin{itemize}
+	\item \textbf{探针间距}：1.00 $mm$
+	\item \textbf{探针材料}：碳化钨
+	\item \textbf{探针压力(可选)}：3$\sim$5 N(薄膜)，5$\sim$7 N（薄片）
+	\item \textbf{机械游移}：< 0.3\%
+	\item \textbf{宝石轴承内孔与探针间距}：< 6 $\mu m$
+\end{itemize}
+
+
+\subsection{外观尺寸（长*宽*高）}
+\begin{itemize}
+	\item \textbf{主机}：$240\ mm * 160\ mm * 235\ mm$
+	\item \textbf{欧姆表}：$295\ mm * 215\ mm * 80\ mm$
+\end{itemize}
+
+\newpage
+
+\section{安装说明}
+\subsection{硬件连接}
+FPP150四探针测试仪由探针台、探针头、欧姆表以及计算机组成。
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=0.70\textwidth]{figures/RM100A连线示意图.png}
+% 	\caption{RM100A连线示意图\label{figure:connection}}
+% \end{figure}
+% RM100A扫描四探针电阻测试仪由三部分组成：主机、欧姆表、台式计算机。如图\ref{figure:connection}所示\footnote{注：主机、欧姆表和台式计算机的电源线缆未在图中显示}，主机和欧姆表分别由一根USB线缆连接到台式计算机；主机探头接口（to Ohmmeter接口）与欧姆表正面之间插孔之间由一根特制线缆连接（注意欧姆表处插头方向）。主机电源为12V DC电源，欧姆表和台式计算机电源为220V AC电源（电源线缆未在图中标出）。
+\subsection{软件安装}
+\newpage
+
+\section{操作说明}
+\subsection{放置样品}
+\begin{itemize}
+	\item 开启计算机和欧姆表电源。
+	\item 顺时针旋转探针台顶部旋钮，将探针头升起。
+	\item 将样品放在探针头正下方。
+	\item 逆时针旋转探针台顶部旋钮，将探针头降低知道探针与样品有效接触，此时欧姆表将显示样品的电阻值。
+	
+\end{itemize}
+
+
+\subsection{软件使用}
+运行Smart FPP软件。填入样品参数
+\begin{itemize}
+	\item Conductor thickness (mm) 导体厚度，以毫米为单位。注意此处厚度为导体厚度，不包括绝缘基底的厚度。
+	\item Diameter (mm) 样品水平方向的尺度，圆形样品请输入直径，矩形和其他形状样品请输入最小维度的长度，以毫米为单位。
+	\item Sampling speed 测量速度
+	\item Resistance range 测量范围
+\end{itemize}
+
+
+
+
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=0.9\textwidth]{figures/single point.png}
+% 	\caption{Single point measurement界面\label{figure:single point UI}}
+% \end{figure}
+
+% \begin{itemize}
+	
+
+% \item {\bf Sample thickness(mm)}\\
+% 样品的厚度参数,有效范围为0.01 mm~10 mm。此参数为包含基底的整体厚度，例如玻璃基板上沉积的ITO薄膜，样品厚度需要填写包含玻璃基板的整体厚度。建议使用游标卡尺或千分尺等精密测量工具测量样品厚度。请注意：厚度决定探针头的下降高度，参数过小会使探针头过度下而降损坏探针头，参数过大则导致探针头下降距离过小无法与样品形成有效接触； 
+
+% \item {\bf Measure parameter}
+% 	\subitem {\bf Resistance}：电阻，即欧姆表显示的数值，此参数为测量原始数据
+% 	\subitem {\bf Resistivity}: 电阻率，对于比较厚的块体样品可以使用此参数直接测量样品电阻率
+% 	\subitem {\bf Sheet Resistance}：方块电阻，适用于薄膜样品
+% \item {\bf Resistance meter setting面板}
+% 	\subitem {\bf Sampling speed}\\欧姆表的采样率。高采样率（Fast）适用于快速但相对粗略的测量，低采样率（Slow 1/2）适用于慢速精密测量，中采样率（Med）为测量速度和精度的折衷，软件默认为中采样率
+% 	\subitem {\bf Resistance range}\\电阻量程。通常选用比实际电阻值高一到两个量级的量程。量程过大会使测量结果精度过低，量程过小容易出现无法测量情况
+% 	\subitem {\colorbox {orange}{\bf Home all stages}\footnote{橙色文字背景为按钮}}\\让X、Y、Z三个轴回到原点。软件启动时默认进行一次三个轴回原点操作，因此通常不需要额外的回原点操作。然而当测量过程中出现故障、断电、更换USB接口等情况时主机经历断电后会丢失位置信息，此时需要进行一次回原点（Home all stage）操作，或者重新运行软件自动进行一次回原点操作。
+% 	\subitem {\colorbox {orange}{\bf Load sample}}\\样品台移动到便于更换样品的位置，通常放置样品或更换样品时需要此命令
+% 	\subitem {\colorbox {orange}{\bf Stop}}\\
+% 	单机后程序停止。注意：Stop按键为强行停止程序，测量结果并未保存。如需保存测量结果可在显示结果的波形图标右键——导出手动保存。
+% \item {\bf Probe control (1mm per click) 面板}
+% 	\subitem {\colorbox {orange}{\bf Left-Right-Back-Front}}\\
+% 	四个方向按键控制探针头和样品台水平方向的联动，每次点击按键使探针头移动1mm。
+% 	\subitem {\colorbox {orange}{\bf Center}}\\
+% 	探针移动到样品台中心位置（50，50）。探针头的位置将在Probe position面板中显示
+% 	\subitem {\colorbox {orange}{\bf Go to}}\\
+% 	在X(mm)  Y(mm)处输入测量位置（例如 50，50，此为样品台中心位置），点击按Go to钮后样品台将移动到相应位置。
+% 	\subitem {\colorbox {orange}{\bf Measure}}\\
+% 	每次单击Measure后系统将完成三个动作：探针头下降--测量--探针头上升，即完成一次手动测量。测量结果将在下方图表中显示。
+
+% \end{itemize}
+
+% \subsection{Auto mapping页面}
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=0.9\textwidth]{figures/auto mapping.png}
+% 	\caption{Auto mapping界面\label{figure:auto mapping UI}}
+% \end{figure}
+
+% \begin{itemize}
+% \item {\bf Mapping recipe}\\
+% 软件包含若干个预设的测量方案，也能选择customized选项使用自定义测量方案。
+% \item {\bf Result folder}\\
+% 测量的结果存放的位置
+% \item {\bf User name}\\
+% 使用者名称
+% \item {\bf Sample name}\\
+% 样品名称
+% \item {\colorbox {orange}{\bf Start}}\\
+% 单击Start即可开始扫描测量
+% \item {\colorbox {orange}{\bf Abort}}\\
+% 扫描过程中需要停止扫描情况下可以单机Abort中断扫描。扫描结果将以颜色标记的散点图形式再Mapping result面板上显示，同时测量结果以波形图形式在散点图下方呈现
+% \item {\bf Estimated total time (s)}\\
+% 预计的扫描测量所需总时长
+% \item {\bf Test speed (seconds/point)}\\
+% 测量速度，即平均每个测量点所需时长
+% \item {\bf Remaining time (s)}\\
+% 扫描测量剩余时间
+% \item {\bf Estimated Finish time}\\
+% 预计结束时刻，根据开始时间和测量速度估算得到的扫描测量完成时间
+
+% \end{itemize}
+\newpage
+
+\section{四探针法电阻测量原理}
+
+\subsection{两探针与四探针方法比较}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/两探针法电阻测量示意图.pdf}
+	\caption{两探针法电阻测量示意图\label{figure:two point illustration}}
+\end{figure}
+
+两探针法又称欧姆表法，是一种结构简单的电阻测量方法。如图\ref{figure:two point illustration}所示，两个探针与恒流源和电压表连接。由恒流源输出一个恒定电流，电压表测量两个探针间的电压，然后由欧姆定律得出电阻值。两探针法多用于大电阻和精度要求不高的情况，其原因在于导线、探针以及探针与样品的接触电阻等附加电阻通常在欧姆量级，对于大电阻测量来说附加电阻相对较小，对最终的结果影响有限。然而对于小电阻而言，附加电阻与被测样品阻值接近甚至高于被测样品阻值，因此其附加电阻会导致相当大的测量误差。
+这种情况对于半导体电阻测量尤为严重，因为探针通常为金属材质，与半导体接触后由于金属与半导体材料之间功函数的差异会形成一定厚度的耗尽层。耗尽层电阻远高于半导体本身，因此形成很大的接触电阻，导致测到的电阻值远高于半导体实际的电阻值。两探针法的局限性在于电流源和电压表共用探针，因此探针需要通过较大电流，这个电流引起的电压降是不可避免的。针对两探针方法的种种不足，开尔文男爵（William Thomson,1st Baron Kelvin ）发展了四探针技术。
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/直线四探针法电阻测量示意图.pdf}
+	\caption{直线四探针法电阻测量示意图\label{figure:aligned four point illustration}}
+\end{figure}
+
+四探针法又称开尔文探针法、四端法，广泛应用于金属、半导体等低电阻率的测量。工作原理如图\ref{figure:aligned four point illustration}所示，四个探针沿一条直线等间距排列，外侧两个探针（探针1和4）传输电流，内侧两个探针测量电压降。恒流源输出电流I到探针1，电流流经样品后经探针4流出形成电流回路。探针2和3连接电压表，测量探针两端的电压降，形成电压回路，电流激励和电压测量不共用探针，而是由各自的一对探针形成回路。根据欧姆定律可得到样品的电阻值。{\bf 电压表的内阻通常在$10^9\ \Omega$以上，因此流过电压探针2和3的电流接近零，因此探针2和3自身电阻产生的电压降也接近零，可以忽略}。这样就规避了导线电阻、探针电阻以及探针与材料的接触电阻的影响，因此四探针方法比两探针法测量精度更高，适用范围更广。
+
+\subsection{四探针法电阻率计算}
+当样品厚度和样品边缘到探针的距离远远大于探针间距的时候，可以认为被测样品为半无穷大样品。在这种半无穷大的样品上由探针引入强度为I的点电流源，若材料均匀且各向同性，电流分布呈球对称，由此产生的等电位面为同心球面，如图\ref{figure:point current source illustration}所示
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/点电流源在半无界样品产生同心球面等电位面示意图.pdf}
+	\caption{点电流源在半无界样品产生同心球面等电位面示意图\label{figure:point current source illustration}}
+\end{figure}
+
+在距离点电流源中心r处的电场强度为
+ \[E = j\rho \]
+其中，$E$为电场强度，$j$为电流密度，$\rho$为电阻率。
+距离点电流源r出的等电势面为半径为r的半球面，因此其面积为$2\pi r^{2}$。所以，电场强度可以表示为
+ \[E = \frac{I}{{2\pi {r^2}}}\rho \]
+其中$I$为电流强度。在球面中，$r$处的电场强度与电势的关系可以由下式表示
+\[E =  - \frac{{d\psi }}{{dr}}\]
+其中$\psi$为$r$处的电势。因此可以得出，
+\[d\psi  =  - Edr =  - \frac{I}{{2\pi {r^2}}}\rho dr\]
+取无穷远处电势为零，可以得出$r$处的电势为
+\[\psi  = \int_\infty ^r { - \frac{I}{{2\pi {r^2}}}\rho dr}  = \frac{I}{{2\pi r}}\rho \]
+以上为点电流源在半无界样品上的电势与位置$r$的关系。
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/不规则位置四探针法电阻测量示意图.pdf}
+	\caption{不规则位置四探针法电阻测量示意图\label{figure:random position four point probe method illustration}}
+\end{figure}
+
+
+
+
+半无界样品上使用不规则位置四探针进行电阻测试示意图由图\ref{figure:random position four point probe method illustration}所示。点1和4分别为电流输入和输出探针的位置，点2和3为测量电压降探针位置。点1和4可以看作点电流源，因此点2和点3的电势分别为
+\[\begin{array}{l}
+{\psi _2} = \frac{{I\rho }}{{2\pi }}\left( {\frac{1}{{{r_{12}}}} - \frac{1}{{{r_{24}}}}} \right)\\\\
+
+{\psi _3} = \frac{{I\rho }}{{2\pi }}\left( {\frac{1}{{{r_{13}}}} - \frac{1}{{{r_{34}}}}} \right)
+\end{array}\]
+其中$r_{12}$，$r_{24}$，$r_{13}$，$r_{34}$分别为点1和2，点2和4，点1和3，以及点3和4之间的距离。
+因此，2和3两点的电位差$V_{23}$为
+\[{V_{23}} = {\psi _2} - {\psi _3} = \frac{{I\rho }}{{2\pi }}\left( {\frac{1}{{{r_{12}}}} - \frac{1}{{{r_{24}}}} - \frac{1}{{{r_{13}}}} + \frac{1}{{{r_{34}}}}} \right)\]
+
+由此导出电阻率表达式为
+
+\[\rho  = 2\pi \frac{{{V_{23}}}}{I}\frac{1}{{\left( {\frac{1}{{{r_{12}}}} - \frac{1}{{{r_{24}}}} - \frac{1}{{{r_{13}}}} + \frac{1}{{{r_{34}}}}} \right)}}\]
+
+通常情况下，四个探针等间距排列。设探针间距为s，即$r_{12}=r_{34}=s, r_{13}=r_{24}=2s$。此时电阻率表达式可以简化为
+\[\rho  = 2\pi s \frac{{{V_{23}}}}{I}\]
+当$s=1\ mm$时，
+\[\rho  = 2\pi \cdot 1\cdot \frac{{{V_{23}}}}{I}(\Omega\cdot  mm) \approx 6.28 \frac{{{V_{23}}}}{I}(\Omega\cdot  mm) = 0.628 \frac{{{V_{23}}}}{I}(\Omega\cdot  cm)\footnotemark\]\label{eqa:resistivity}
+\footnotetext{注意此处单位变化}
+$V_{23}/I$为欧姆表的测量结果，亦即软件中测量参数Resistance的值。对于符合半无界条件的样品电阻率与欧姆表显示测量值之间存在一个系数0.628。
+
+\subsection{薄膜方块电阻计算}
+对于薄膜材料，半无界条件则不适用。与半无界样品相比，薄膜材料的区别在于其等势面分布并非半球形，而是呈圆柱形分布。可以理解为半无界样品的表面切掉一个厚度为t的薄层。此时距离点电流源r处等势面面积为$2\pi rt$。电场强度可以表示为
+\[E = j\rho  = \frac{I}{{2\pi rt}}\rho \]
+同样的，取无穷远处电势为零，可以得出r处电势为
+\[\psi  = \int_\infty ^r { - \frac{I}{{2\pi rt}}\rho dr}  = \frac{I}{{2\pi t}}\rho \int_\infty ^r { - \frac{1}{r}dr}  = \frac{I}{{2\pi t}}\rho \ln (\frac{1}{r})\]
+点2和3之间的电位分别为
+\[\begin{array}{l}
+	{\psi _2} = \frac{{I\rho }}{{2\pi t}}\left[ {\ln \left( {\frac{1}{{{r_{12}}}}} \right) - \ln \left( {\frac{1}{{{r_{24}}}}} \right)} \right]\\\\
+	{\psi _3} = \frac{{I\rho }}{{2\pi t}}\left[ {\ln \left( {\frac{1}{{{r_{13}}}}} \right) - \ln \left( {\frac{1}{{{r_{34}}}}} \right)} \right]
+\end{array}\]
+当探针间距相等且为$s$的条件下，得到
+\[\begin{array}{l}
+	{\psi _2} = \frac{{I\rho }}{{2\pi t}}\left[ {\ln \left( {\frac{1}{s}} \right) - \ln \left( {\frac{1}{2s}} \right)} \right]\\\\
+	{\psi _3} = \frac{{I\rho }}{{2\pi t}}\left[ {\ln \left( {\frac{1}{2s}} \right) - \ln \left( {\frac{1}{s}} \right)} \right]
+\end{array}\]
+所以，
+\[{V_{23}} = {\psi _2} - {\psi _3}= \frac{{I\rho }}{{2\pi }}\ln 4 = \frac{{\ln 2}}{{\pi t}}I\rho \]
+薄膜材料电阻率可以表示为
+\begin{equation}\label{eqa:sheet resistance}
+\rho  = \frac{\pi }{{\ln 2}}\frac{{{V_{23}}}}{I} t \approx 4.532\cdot t\frac{{{V_{23}}}}{I}
+\end{equation}
+这就是薄膜材料四探针方法测试电阻率的表达式。
+由式\ref{eqa:sheet resistance}可知，采用等间距四探针方法进行薄膜材料电阻率测试与探针间距$s$无关。
+对于薄膜材料，常用方块电阻（sheet resistance，简称方阻）表示
+又因为薄膜的方阻为
+\[{R_{\Box}}=\frac{\rho}{t}\] 
+因此，薄膜方阻的表达式为
+\[{R_{\Box}} = 4.532\frac{{{V_{23}}}}{I}\]
+即薄膜样品方阻与欧姆表显示电阻值之间系数为4.532。薄膜的电阻率也可以由薄膜方阻和厚度导出，即
+\[\rho={R_{\Box}\cdot t}\]\label{eqa:sheet resistance to resistivity}
+
+
+\newpage
+\subsection{非半无界样品的修正系数}
+以上为满足半无界条件样品的电阻率计算方法。对于不满足半无界条件的样品，例如厚度介于10倍探针间距（10\ mm）与0.1倍探针间距（0.1\ mm）之间的样品，以及直径小于200\ mm的样品，则需要在公式\ref{eqa:sheet resistance}的基础上乘以修正系数。
+
+\[\rho={F_1\cdot F_2\cdot F_3\cdot R_{\Box}\cdot t}\]\label{eqa:resistivity correction}
+
+$F_1$为探针修正系数，用来修正探针的出厂偏差，由厂家提供，为一个接近一的常数。$F_2$为厚度修正系数，当样品厚度在0.4\ mm $\sim$ 4\ mm之间时需要使用此修正系数，当样品厚度大于4\ mm时可认为样品在厚度方向上为半无界样品，可由式\ref{eqa:resistivity}直接得出样品电阻率。$F_3$为样品直径修正系数，当样品直径介于10\ mm $\sim$ 200\ mm之间时，可使用此系数。当样品直径大于200\ mm时，满足半无界条件，$F_3$接近于一，可忽略。当样品直径小于10\ mm时，测量结果受探针位置影响明显，手动测量精度难以保证，建议使用RM100A扫描四探针测试仪进行测量。
+\par 使用{\color{red}Smart FPP}软件可以无需考虑各种使用条件，用户仅需输入样品厚度和直径信息，软件会自行判断适用条件以及乘以相应的修正系数。对于初次使用的用户也能够轻松测量准确的电阻率参数。
+\newpage
+\section*{附录}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/diameter correction factor.eps}
+	\caption{直径修正系数\label{figure:diameter correction factor}}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/thickness correction factor.eps}
+	\caption{厚度修正系数\label{figure:thickness correction factor}}
+\end{figure}
+
+\newpage
+% Please add the following required packages to your document preamble:
+
+% Note: It may be necessary to compile the document several times to get a multi-page table to line up properly
+\begin{table}[h]
+	\centering
+	\caption{厚度修正系数}
+	\label{tab:thickness correction factors}
+	\begin{tabular}{|r|r|r|r|r|r|}
+	\hline
+	\textbf{厚度（mm）} & \textbf{修正系数} & \textbf{厚度（mm）} & \textbf{修正系数} & \textbf{厚度（mm）} & \textbf{修正系数} \\ \hline
+	%
+	0.4  & 0.9993 & 0.65 & 0.9875 & 0.9  & 0.946  \\ \hline
+	0.41 & 0.9992 & 0.66 & 0.9865 & 0.91 & 0.9438 \\ \hline
+	0.42 & 0.999  & 0.67 & 0.9853 & 0.92 & 0.9414 \\ \hline
+	0.43 & 0.9989 & 0.68 & 0.9842 & 0.93 & 0.9391 \\ \hline
+	0.44 & 0.9987 & 0.69 & 0.983  & 0.94 & 0.9367 \\ \hline
+	0.45 & 0.9986 & 0.7  & 0.9818 & 0.95 & 0.9343 \\ \hline
+	0.46 & 0.9984 & 0.71 & 0.9804 & 0.96 & 0.9318 \\ \hline
+	0.47 & 0.9981 & 0.72 & 0.9791 & 0.97 & 0.9293 \\ \hline
+	0.48 & 0.9978 & 0.73 & 0.9777 & 0.98 & 0.9263 \\ \hline
+	0.49 & 0.9976 & 0.74 & 0.9762 & 0.99 & 0.9242 \\ \hline
+	0.5  & 0.9975 & 0.75 & 0.9747 & 1    & 0.921  \\ \hline
+	0.51 & 0.9971 & 0.76 & 0.9731 & 1.2  & 0.864  \\ \hline
+	0.52 & 0.9967 & 0.77 & 0.9715 & 1.4  & 0.803  \\ \hline
+	0.53 & 0.9962 & 0.78 & 0.9699 & 1.6  & 0.742  \\ \hline
+	0.54 & 0.9958 & 0.79 & 0.9681 & 1.8  & 0.685  \\ \hline
+	0.55 & 0.9953 & 0.8  & 0.9664 & 2    & 0.634  \\ \hline
+	0.56 & 0.9947 & 0.81 & 0.9645 & 2.2  & 0.587  \\ \hline
+	0.57 & 0.9941 & 0.82 & 0.9627 & 2.4  & 0.546  \\ \hline
+	0.58 & 0.9934 & 0.83 & 0.9608 & 2.6  & 0.51   \\ \hline
+	0.59 & 0.9927 & 0.84 & 0.9588 & 2.8  & 0.477  \\ \hline
+	0.6  & 0.992  & 0.85 & 0.9566 & 3    & 0.448  \\ \hline
+	0.61 & 0.9912 & 0.86 & 0.9547 & 3.2  & 0.422  \\ \hline
+	0.62 & 0.9903 & 0.87 & 0.9526 & 3.4  & 0.399  \\ \hline
+	0.63 & 0.9894 & 0.88 & 0.9505 & 3.6  & 0.378  \\ \hline
+	0.64 & 0.9885 & 0.89 & 0.9483 & 3.8  & 0.359  \\ \hline
+	     &        &      &        & 4    & 0.342  \\ \hline
+	\end{tabular}
+\end{table}
+
+\newpage
+\begin{table}[h]
+	\centering
+	\caption{直径修正系数}
+	\label{tab:diamension correction factors}
+	\begin{tabular}{|r|r|}
+	\hline
+	\textbf{直径（mm）}   & \textbf{修正系数}  \\ \hline
+	200  & 1     \\ \hline
+	100  & 0.999 \\ \hline
+	66.7 & 0.998 \\ \hline
+	50   & 0.997 \\ \hline
+	40   & 0.995 \\ \hline
+	33.3 & 0.992 \\ \hline
+	28.6 & 0.99  \\ \hline
+	25   & 0.986 \\ \hline
+	22.2 & 0.983 \\ \hline
+	20   & 0.979 \\ \hline
+	18.2 & 0.975 \\ \hline
+	16.7 & 0.970 \\ \hline
+	15.4 & 0.965 \\ \hline
+	14.3 & 0.959 \\ \hline
+	13.3 & 0.954 \\ \hline
+	12.5 & 0.947 \\ \hline
+	11.8 & 0.941 \\ \hline
+	11.1 & 0.934 \\ \hline
+	10.5 & 0.928 \\ \hline
+	10   & 0.920 \\ \hline
+	\end{tabular}
+\end{table}
+
+
+\end{document}
